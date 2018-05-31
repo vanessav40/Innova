@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 //import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-//import Typography from '@material-ui/core/Typography';
+import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -49,27 +49,24 @@ class Header extends Component {
     /*console.log(this.props);*/
 
     return (
-      <div className="Header">
+      <div className="Header" style={{flexGrow:1}}>
         <div className="Logo">
            <img src={logo} alt="logo" />
         {/*<h1 className="App-title">Innova</h1>
           <h2>Hello Word React</h2> */}
           <h2>{title}</h2>
-          <ul className="root">
-                <AppBar position="static">
-                  <Toolbar>
-                    <div className="flex">
-                    <IconButton className="menuButton" color="inherit" aria-label="Menu">
-                      <MenuIcon />
-                    </IconButton>
-                        
-                          { this.renderItems() }
-                    </div>
-                        <Button className="loginButton">Login</Button>
-                  </Toolbar>
-                </AppBar>
-          </ul>
+              
         </div>
+        <AppBar position="static">
+            <Toolbar>
+                <IconButton className="menuButton" color="inherit" aria-label="Menu">
+                  <MenuIcon />
+                </IconButton>
+                  { this.renderItems() }
+                  <Typography variant="title" color="inherit" style={{flex:1}}></Typography>
+                <Button className="loginButton" color="inherit" aria-label="Menu">Login</Button>
+            </Toolbar>
+          </AppBar>
       </div>
     );
   }
